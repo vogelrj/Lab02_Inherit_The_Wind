@@ -29,8 +29,8 @@ public class InheritanceDemo {
 
         for (int i = 0; i < weeklyhours.length; i++) {
             double hours = weeklyhours[i];
-            System.out.printf("\nWeek %d:  %.2f hours\n", (i + 1), hours);
-            System.out.println("-------------------------");
+            System.out.printf("\nPay Week %d (%.2f hrs)", (i + 1), hours);
+            System.out.println("\n");
             for (Worker employee : workers) {
                 employee.displayWeeklyPay(hours);
                 System.out.println();
