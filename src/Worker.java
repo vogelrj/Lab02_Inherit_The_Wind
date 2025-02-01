@@ -41,11 +41,11 @@ public class Worker extends Person {
         double overtimePay = overtimeHours * hourlyPayRate * 1.5;
         double totalPay = regularPay + overtimePay;
 
-        System.out.printf("%s %s %s",
+        System.out.printf("%s %s %s%n",
                 getTitle(), getFirstName(), getLastName());
-        System.out.printf("  Regular Hours: %.2f", regularHours);
+        System.out.printf("  Regular Hours: %.2f%n", regularHours);
         System.out.printf("  Regular Pay: $%.2f%n", regularPay);
-        System.out.printf("  Overtime Hours: %.2f", overtimeHours);
+        System.out.printf("  Overtime Hours: %.2f%n", overtimeHours);
         System.out.printf("  Overtime Pay: $%.2f%n", overtimePay);
         System.out.printf("  Total Pay: $%.2f%n", totalPay);
     }

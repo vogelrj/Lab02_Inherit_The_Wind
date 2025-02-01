@@ -24,10 +24,10 @@ public class SalaryWorker extends Worker {
     @Override
     public void displayWeeklyPay(double hoursWorked) {
         double weeklyPay = calculateWeeklyPay(hoursWorked);
-        System.out.printf("%s %s (%s)",
+        System.out.printf("%s %s (%s)%n",
                 getTitle(), getFirstName(), getLastName());
         System.out.printf("  Hours Worked: %.2f%n", hoursWorked);
-        System.out.printf("  Weekly Pay (annualSalary / 52): $%.2f%n", weeklyPay);
+        System.out.printf("  Weekly Pay (Salary / 52 Weeks): $%.2f%n", weeklyPay);
     }
 
     @Override

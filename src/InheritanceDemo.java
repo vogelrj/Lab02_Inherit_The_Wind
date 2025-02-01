@@ -10,9 +10,9 @@ public class InheritanceDemo {
         Worker hourly_worker3 = new Worker("000003", "Julia", "Vasquez", "PVT", 2009, 16.00);
 
         //SalaryWorker classes
-        SalaryWorker salary_worker1 = new SalaryWorker("000004", "Ellen", "Ripley", "CPT", 1996, 35.00);
-        SalaryWorker salary_worker2 = new SalaryWorker("000005", "Bradley", "Gorman", "2LT", 2000, 30.00);
-        SalaryWorker salary_worker3 = new SalaryWorker("000006", "Carter" ,"Burke", "Dr.", 1991, 45.00);
+        SalaryWorker salary_worker1 = new SalaryWorker("000004", "Ellen", "Ripley", "CPT", 1996, 85000.00);
+        SalaryWorker salary_worker2 = new SalaryWorker("000005", "Bradley", "Gorman", "2LT", 2000, 70000.00);
+        SalaryWorker salary_worker3 = new SalaryWorker("000006", "Carter" ,"Burke", "Dr.", 1991, 125000.00);
 
         //Create ArrayList of all Classes
         ArrayList<Worker> workers = new ArrayList<>();
