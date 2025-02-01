@@ -12,6 +12,14 @@ public class Worker extends Person {
         this.hourlyPayRate = hourlyPayRate;
     }
 
+    public double getHourlyPayRate() {
+        return hourlyPayRate;
+    }
+
+    public void setHourlyPayRate(double hourlyPayRate) {
+        this.hourlyPayRate = hourlyPayRate;
+    }
+
     public double calculateWeeklyPay(double hoursWorked){
         double overtimeRate = hourlyPayRate * 1.5;
         double paycheck = 0.0;
@@ -33,11 +41,48 @@ public class Worker extends Person {
         double overtimePay = overtimeHours * hourlyPayRate * 1.5;
         double totalPay = regularPay + overtimePay;
 
-        System.out.printf("%s %s (%s) worked %.2f hours this week.%n",
-                getTitle(), getFirstName(), getID(), hoursWorked);
-        System.out.printf("  Regular Hours: %.2f => $%.2f%n", regularHours, regularPay);
-        System.out.printf("  Overtime Hours: %.2f => $%.2f%n", overtimeHours, overtimePay);
+        System.out.printf("%s %s %s",
+                getTitle(), getFirstName(), getLastName());
+        System.out.printf("  Regular Hours: %.2f", regularHours);
+        System.out.printf("  Regular Pay: $%.2f%n", regularPay);
+        System.out.printf("  Overtime Hours: %.2f", overtimeHours);
+        System.out.printf("  Overtime Pay: $%.2f%n", overtimePay);
         System.out.printf("  Total Pay: $%.2f%n", totalPay);
+    }
+
+    @Override
+    public String toJSON() {
+        return String.format("{\"ID\":\"%s\",\"firstName\":\"%s\",\"lastName\":\"%s\",\"title\":\"%s\",\"YOB\":%d,\"hourlyPayRate\":%.2f}",
+                getID(), getFirstName(), getLastName(), getTitle(), getYOB(), hourlyPayRate);
+    }
+
+    @Override
+    public String toXML() {
+        return String.format("<Worker>" +
+                        "<ID>%s</ID>" +
+                        "<firstName>%s</firstName>" +
+                        "<lastName>%s</lastName>" +
+                        "<title>%s</title>" +
+                        "<YOB>%d</YOB>" +
+                        "<hourlyPayRate>%.2f</hourlyPayRate>" +
+                        "</Worker>",
+                getID(), getFirstName(), getLastName(), getTitle(), getYOB(), hourlyPayRate);
+    }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + String.format(", %.2f", hourlyPayRate);
+    }
+
+    @Override
+    public String toString() {
+        return "Worker{" +
+                "ID='" + getID() + '\'' +
+                ", name='" + getFirstName() + " " + getLastName() + '\'' +
+                ", title='" + getTitle() + '\'' +
+                ", YOB=" + getYOB() +
+                ", hourlyPayRate=" + hourlyPayRate +
+                '}';
     }
 
 }

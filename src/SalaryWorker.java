@@ -3,12 +3,12 @@ public class SalaryWorker extends Worker {
     double annualSalary;
 
 
-    public SalaryWorker(String firstName, String lastName, String ID, String title, int YOB, double hourlyPayRate, double annualSalary) {
-        super(firstName, lastName, ID, title, YOB, hourlyPayRate);
+    public SalaryWorker(String ID, String firstName, String lastName, String title, int YOB, double annualSalary) {
+        super(ID, firstName, lastName, title, YOB, 0.0);
         this.annualSalary = annualSalary;
     }
 
-    public double getAnnualSalary(double hoursWorked) {
+    public double getAnnualSalary() {
         return annualSalary;
     }
 
@@ -16,7 +16,7 @@ public class SalaryWorker extends Worker {
         this.annualSalary = annualSalary;
     }
 
-    public double calculateWeeklyPay() {
+    public double calculateWeeklyPay(double hoursWorked) {
         return annualSalary / 52;
     }
 
@@ -24,9 +24,9 @@ public class SalaryWorker extends Worker {
     @Override
     public void displayWeeklyPay(double hoursWorked) {
         double weeklyPay = calculateWeeklyPay(hoursWorked);
-        System.out.printf("%s %s (%s) is a salary worker.%n",
-                getTitle(), getFirstName(), getID());
-        System.out.printf("  Hours Worked (ignored for pay calc): %.2f%n", hoursWorked);
+        System.out.printf("%s %s (%s)",
+                getTitle(), getFirstName(), getLastName());
+        System.out.printf("  Hours Worked: %.2f%n", hoursWorked);
         System.out.printf("  Weekly Pay (annualSalary / 52): $%.2f%n", weeklyPay);
     }
 
